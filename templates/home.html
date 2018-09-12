@@ -1,0 +1,89 @@
+<html>
+  <head>
+      <title>Python Django CRUD</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+      <style>
+          .sidebar{
+             width:595px;
+             height: 710px;
+             border-top:1px solid black;
+             border-right: 1px solid black;
+             border-left:1px solid black;
+             border-bottom:5px solid blue;
+             float:left;
+             margin-top:20px;
+             padding:50px;
+             overflow:auto;
+             box-shadow: 2px 2px 2px 2px gray;
+          }
+          .foot
+          {
+              background-color: rgb(40,40,40);
+              padding: 20px;
+              color: white;
+              text-align: center;
+              clear: left;
+              max-width: 100%;
+              margin-top:500px;
+           }
+      </style>
+  </head>
+ <body>
+ <div class="container">
+     <div class="row">
+         <div class="col-sm-3">
+
+         </div>
+         <div class="col-sm-6">
+             <div class="sidebar">
+                 <center><b>Python django Read</b></center><br><br>
+                  <!--<b><a href="http://shawonruet.me" target="_blank">my Blog</a> </b>-->
+                 <center><a class="btn btn-info" href="/register/">Register</a></center>
+                  <div id="app">
+                     <br><center><h4>${ message }</h4></center>
+                      <input v-model="message" class="form-control">
+                    </div><br>
+                 {% for i in user %}
+                  Name : {{i.name}} <br> Email: {{i.email}} <br><br><a class="btn btn-success btn-sm" href="/update/{{i.id}}">Edit </a> <a class="btn btn-danger btn-sm" href="/delete/{{i.id}}">Delete</a><br><br>
+                 {%endfor%}
+             </div>
+         </div>
+         <div class="col-sm-2">
+
+         </div>
+     </div>
+ </div>
+
+ <!--<div class="container">
+<div class="row">
+ <h1>Python</h1>-->
+
+
+    <script>
+       var app = new Vue({
+         delimiters: ['${', '}'],
+          el: '#app',
+          data: {
+            message: 'All Users'
+          }
+      })
+
+    </script>
+ <!--<b><a href="http://shawonruet.me" target="_blank">my Blog</a> </b>
+ <a href="/register/">Register</a>
+ <br><b>All user</b><br>
+ {% for i in user %}
+  {{i.name}} {{i.email}}<a href="/update/{{i.id}}">Edit</a><a href="/delete/{{i.id}}">Delete</a><br>
+ {%endfor%}
+
+</div>-->
+ <footer class="foot">
+    <center><p>Copyright &copy;2018<br>Developed By Ashadullah Shawon</p></center>
+</footer>
+ </body>
+
+</html>
